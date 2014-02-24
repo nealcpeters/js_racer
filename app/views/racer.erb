@@ -1,8 +1,8 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-<script language="JavaScript" type="text/javascript" src="/public/js/application.js"></script>
-<link rel="stylesheet" href="/public/css/style.css">
+<script language="JavaScript" type="text/javascript" src="/js/application.js"></script>
+<link rel="stylesheet" href="/css/style.css">
 
 <body>
   <table class="racer_table">
@@ -32,7 +32,8 @@
       <td></td>
       <td></td>
       <td></td>
-      <td><img src="flag.gif"></img></td>
+      <td></td>
+      <td class="last"><img src="/images/flag.gif"></img></td>
 
     </tr>
     <tr id="player2_strip">
@@ -61,9 +62,16 @@
       <td></td>
       <td></td>
       <td></td>
-      <td><img src="flag.gif"></img></td>
+      <td></td>
+      <td class="last"><img src="/images/flag.gif"></img></td>
 
     </tr>
   </table>
 
+  <p id="player1_won">Player 1 Won!</p>
+  <p id="player2_won">Player 2 Won!</p>
+   <form action='/game_over' method='POST'>
+    <input id='return_home' type='hidden' value='' name='winner'>
+    <br><br><input type='submit' value="Return Home">
+  </form>
 </body>
