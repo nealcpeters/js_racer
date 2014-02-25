@@ -1,7 +1,29 @@
-$(document).ready(function() {
+// var player1 = {
+//   name: "player1"
+// };
+
+
+// player1.winner = ture
+// var player2 = {
+//   name: "player2"
+// };
+
+// var gameStart = {
+//   time: new Date().getTime()
+// };
+
+// var gameEnd = {
+//   time: new Date().getTime()
+// };
+
+function initializeBoard(){
   $('#player1_won').hide();
   $('#player2_won').hide();
   $('form').hide();
+};
+
+$(document).ready(function() {
+
 
   winner = false;
   function move_player(players_id) {
