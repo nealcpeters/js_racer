@@ -22,26 +22,25 @@ function initializeBoard() {
   $('form').hide();
 };
 
+function determineWinner(player_id) {
+    id = "";
+      if (player_id === "#player1_strip")
+        id = "#player1_won";
+      else
+        id = "#player2_won";
+      showForm(id);
+}
+
 function move_player(player_id, winner) {
   if (!winner) {
     $(player_id).find(".active").removeClass('active').next().addClass('active');
 
     if ($('.active').hasClass('last')) {
       winner = true;
-      id = "";
-      if (player_id === "#player1_strip")
-        id = "#player1_won";
-      else
-        id = "#player2_won";
-
-      $(id).show();
-      $('form').show();
-      $('#return_home').val(id);
+      determineWinner(player_id);
     }
   }
 }
-
-
 
 function movement() {
   $(document).on("keyup", function(evt) {
@@ -49,11 +48,17 @@ function movement() {
       var charCode = evt.keyCode || evt.which;
       var charStr = String.fromCharCode(charCode);
       if (charStr === "K")
-        move_player("#player1_strip", winner)
+        "#player1_strip"
       else if (charStr === "S")
-        move_player("#player2_strip", winner)
+        "#player2_strip"
     });
 };
+
+function showForm(id) {
+  $(id).show();
+  $('form').show();
+  $('#return_home').val(id);
+}
 
 
 $(document).ready(function() {
@@ -62,6 +67,6 @@ $(document).ready(function() {
   winner = false;
 
   movement();
-
+  move_player(player_id, winner)
 
 });
